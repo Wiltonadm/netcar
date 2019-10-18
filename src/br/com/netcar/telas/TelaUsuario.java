@@ -3,6 +3,8 @@ package br.com.netcar.telas;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import br.com.netcar.dal.ModuloConexao;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 public class TelaUsuario extends javax.swing.JInternalFrame {
 
@@ -57,7 +59,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(3, txtUsuFone.getText());
             pst.setString(4, txtUsuLogin.getText());
             pst.setString(5, txtUsuSenha.getText());
-            pst.setString(6, cboUsuPerfil.getSelectedItem().toString());
+            pst.setString(6, cboUsuPerfil.getSelectedItem().toString().trim());
             //validacao dos campos obrigatoriso
             if ((txtUsuCPF.getText().isEmpty()) || (txtUsuNome.getText().isEmpty()) || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos so campos com obrigatorios *");
@@ -119,6 +121,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     // metodo para remover usuarios 
     private void remover() {
         // estrutra serve para confirma a remocao
+
         int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este usuário", "Atenção", JOptionPane.YES_NO_OPTION);
 
         if (confirma == JOptionPane.YES_OPTION) {
@@ -193,7 +196,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         txtUsuSenha.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
 
         cboUsuPerfil.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cboUsuPerfil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "admin\t", "user" }));
+        cboUsuPerfil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "admin", "user" }));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel6.setText("Fone");

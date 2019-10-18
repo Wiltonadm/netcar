@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -40,25 +41,22 @@ public class TelaLogin extends javax.swing.JFrame {
                 String perfil = rs.getString(6);
                 //decidir se vai liberar ou nao todos os campos do perfil do usuario
                 if (perfil.equals("admin")) {
+                    System.out.println("ENTROU");
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
                     TelaPrincipal.bntManterUsu.setEnabled(true);
                     TelaPrincipal.lblUsuario.setText(rs.getString(2));
                     TelaPrincipal.lblUsuario.setForeground(Color.red);
-
                     //garante que o formulario feche
                     this.dispose();
-                  
-                } 
-                
-                else {
+
+                } else {
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
                     TelaPrincipal.lblUsuario.setText(rs.getString(2));
-
                     //garante que o formulario feche
                     this.dispose();
-                  
+
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "usuario e/ou senha inválido(s)");
@@ -71,9 +69,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        
+
         setIconImage(getIconImage());
-        
+
         //Chamar o metodo que foi criado no metodo de conexao o metodo conector
         conexao = ModuloConexao.conector();
         //linha de baixo serve de apoio
@@ -88,8 +86,8 @@ public class TelaLogin extends javax.swing.JFrame {
         }
 
     }
-    
-    public final Image getIconImage(){
+
+    public final Image getIconImage() {
         Image Icone = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/netcar/icones/n.png"));
         return Icone;
     }
@@ -185,7 +183,10 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     public static void main(String args[]) {
-
+         try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -203,5 +204,4 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-  
 }

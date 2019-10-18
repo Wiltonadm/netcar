@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -25,20 +26,18 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    Color minhaCor = new Color (204,51,0);
     public TelaPrincipal() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        bntDash.setBackground(minhaCor);
         setIconImage(getIconImage());
 
-        
     }
 
     public final Image getIconImage() {
         Image Icone = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/netcar/icones/n.png"));
         return Icone;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -100,12 +99,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDesktopPane2.setBackground(new java.awt.Color(204, 51, 0));
         jDesktopPane2.setForeground(new java.awt.Color(204, 51, 0));
 
-        bntDash.setBackground(new java.awt.Color(204, 51, 0));
         bntDash.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        bntDash.setForeground(new java.awt.Color(255, 255, 255));
         bntDash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/dashboard.png"))); // NOI18N
         bntDash.setText("Dashboard");
-        bntDash.setBorder(null);
         bntDash.setDefaultCapable(false);
         bntDash.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +112,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         bntClien.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         bntClien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/cliente.png"))); // NOI18N
         bntClien.setText("Clientes");
+        bntClien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntClienActionPerformed(evt);
+            }
+        });
 
         bntVeic.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         bntVeic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/veiculos.png"))); // NOI18N
@@ -184,10 +185,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bntDash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntManterUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntMoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntVeic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bntDash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntAvis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntViag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bntRela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -205,7 +206,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(bntDash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bntDash, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(bntClien)
                 .addGap(20, 20, 20)
@@ -220,7 +221,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(bntAvis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addComponent(bntManterUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bntSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -302,8 +303,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntDashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDashActionPerformed
-   
-        
+
+
     }//GEN-LAST:event_bntDashActionPerformed
 
     private void bntAvisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAvisActionPerformed
@@ -327,6 +328,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bntSairActionPerformed
 
     private void bntManterUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntManterUsuActionPerformed
+        try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
+
         //abrir tela de cadastro
         TelaUsuario usuario = new TelaUsuario();
         usuario.setVisible(true);
@@ -336,13 +342,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*Toolkit kit = Toolkit.getDefaultToolkit();
-         Dimension tamTela = kit.getScreenSize();
-         int larg = tamTela.width;
-         int alt = tamTela.height;
-         setSize(larg,alt);
-         */
-
 
     }//GEN-LAST:event_bntManterUsuActionPerformed
 
@@ -356,16 +355,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sobre.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void bntClienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntClienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bntClienActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+        try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -382,7 +390,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -410,7 +418,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblimg;
     // End of variables declaration//GEN-END:variables
-
-  
 
 }
