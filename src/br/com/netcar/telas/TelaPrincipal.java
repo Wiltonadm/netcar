@@ -121,10 +121,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         bntVeic.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         bntVeic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/veiculos.png"))); // NOI18N
         bntVeic.setText("Veiculos");
+        bntVeic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntVeicActionPerformed(evt);
+            }
+        });
 
         bntMoto.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         bntMoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/motorista.png"))); // NOI18N
         bntMoto.setText("Motoristas");
+        bntMoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntMotoActionPerformed(evt);
+            }
+        });
 
         bntViag.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         bntViag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/netcar/icones/viagem.png"))); // NOI18N
@@ -356,8 +366,64 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bntClienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntClienActionPerformed
-        // TODO add your handling code here:
+        // CHAMAR TELA DE CLIENTES
+         try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
+
+        //abrir tela de cadastro
+         TelaClientes clientes = new TelaClientes();
+        clientes.setVisible(true);
+        desktop.add(clientes);
+        try {
+            clientes.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bntClienActionPerformed
+
+    private void bntMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMotoActionPerformed
+        // chamando a tela motorista
+        
+         try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
+
+        //abrir tela de cadastro
+         TelaMotorista motorista = new TelaMotorista();
+        motorista.setVisible(true);
+        desktop.add(motorista);
+        try {
+            motorista.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+      
+        
+    }//GEN-LAST:event_bntMotoActionPerformed
+
+    private void bntVeicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVeicActionPerformed
+        // chamar tela de veiculos
+        
+         try {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        } catch (Exception e) {
+        }
+
+        //abrir tela de cadastro 
+        TelaVeiculos veiculos = new TelaVeiculos();
+        veiculos.setVisible(true);
+        desktop.add(veiculos);
+        try {
+            veiculos.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntVeicActionPerformed
 
     /**
      * @param args the command line arguments
